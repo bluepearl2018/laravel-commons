@@ -1,0 +1,52 @@
+{
+  "name": "eutranet/laravel-commons",
+  "description": "This includes all common models, for combos, and so on",
+  "type": "project",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Eutranet\\Commons\\Tests\\": "tests/",
+      "Eutranet\\Commons\\": "src/",
+      "Eutranet\\Commons\\Http\\Middleware\\": "src/Http/Middleware/",
+      "Eutranet\\Commons\\Database\\Migrations\\": "database/migrations/",
+      "Eutranet\\Commons\\Database\\Factories\\": "database/factories/",
+      "Eutranet\\Commons\\Database\\Seeders\\": "database/seeders/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Stéphane Maissin",
+      "email": "stephane.maissin@gmail.com"
+    }
+  ],
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Eutranet\\Commons\\CommonsServiceProvider"
+      ]
+    },
+    "aliases": {
+      "DropdownFacade": "DropdownFacade",
+      "Appellative": "Eutranet\\Commons\\Models\\Appellative",
+      "AssetCategory": "Eutranet\\Commons\\Models\\AssetCategory",
+      "Car": "Eutranet\\Commons\\Models\\Car",
+      "CarBrand": "Eutranet\\Commons\\Models\\CarBrand",
+      "Country": "Eutranet\\Commons\\Models\\Country",
+      "Gender": "Eutranet\\Commons\\Models\\Gender",
+      "Kinship": "Eutranet\\Commons\\Models\\Kinship",
+      "Language": "Eutranet\\Commons\\Models\\Language",
+      "MaritalStatus": "Eutranet\\Commons\\Models\\MaritalStatus",
+      "MatrimonialRegime": "Eutranet\\Commons\\Models\\MatrimonialRegime",
+      "MediaCollection": "Eutranet\\Commons\\Models\\MediaCollection",
+      "Stability": "Eutranet\\Commons\\Models\\Stability",
+      "UserStatus": "Eutranet\\Commons\\Models\\UserStatus",
+      "WorkRegime": "Eutranet\\Commons\\Models\\WorkRegime",
+      "WorkStatus": "Eutranet\\Commons\\Models\\WorkStatus"
+    }
+  },
+  "minimum-stability": "dev",
+  "require-dev": {
+    "orchestra/testbench": "^7.3",
+    "phpunit/phpunit": "^9.5.10"
+  }
+}
