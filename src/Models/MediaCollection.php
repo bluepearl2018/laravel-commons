@@ -29,7 +29,7 @@ class MediaCollection extends Model
 
 	public static function getClassLead(): string
 	{
-		return '';
+		return trans('media-collections.class-lead') . ' ' . 'Media collections will be registerd in a table in order to be associated with spatie media library collections... A media collection can be more than just a name to group files. By defining a media collection in your model you can add certain behaviour.';
 	}
 	
 	/**

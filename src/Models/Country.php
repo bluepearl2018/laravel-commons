@@ -32,14 +32,14 @@ class Country extends Model
 	{
 		// field, type, required, placeholder, tip, model for select
 		return [
-			'code' => ['input', 'text', 'required', trans('commons::ISO 2 Code'), trans('commons::Enter the code (ISO 2)'), __NAMESPACE__ . '\\Country'],
-			'name' => ['input', 'text', 'required', trans('commons.Name'), trans('commons::Enter the name')],
+			'code' => ['input', 'text', 'required', trans('commons::countries.ISO 2 Code'), trans('commons::countries.Enter the code (ISO 2)'), __NAMESPACE__ . '\\Country'],
+			'name' => ['input', 'text', 'required', trans('commons::countries.Name'), trans('commons::countries.Enter the name')],
 		];
 	}
 
 	public static function getClassLead(): string
 	{
-		return '';
+		return trans('countries.class-lead') . ' ' . 'A country, or state (sometimes called nation), is a distinct territorial body or political entity.[1] It may be an independent sovereign state or part of a larger state,[2] as a non-sovereign or formerly sovereign political division, a physical territory with a government, or a geographic region associated with sets of previously independent or differently associated peoples with distinct political characteristics. It is not inherently sovereign.';
 	}
 
 	/**

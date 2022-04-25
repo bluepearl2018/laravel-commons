@@ -13,14 +13,13 @@ use Illuminate\Http\Request;
 class AppellativeController extends BaseCrudController
 {
 	/**
-	 * @param Appellative $appellative
+	 * @param Appellative $user
 	 */
-	public function __construct(Appellative $appellative)
+	public function __construct(Appellative $user)
 	{
-		$viewPath = 'commons::appellatives';
 		$resourceName = 'Appellative';
 		$tableName = 'appellatives';
-		parent::__construct($appellative, $viewPath, $resourceName, $tableName);
+		parent::__construct($user, $resourceName, $tableName);
 	}
 
 	/**

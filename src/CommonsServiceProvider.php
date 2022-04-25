@@ -4,11 +4,12 @@ namespace Eutranet\Commons;
 
 use Eutranet\Init\PackageServiceProvider;
 use Eutranet\Init\Package;
-use Eutranet\Commons\View\Composers\ViewComposer;
+use Eutranet\Commons\View\Composers\CommonsConfigComposer;
 use Eutranet\Commons\Console\Commands\EutranetInstallCommonsCommand;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Routing\Router;
 use Eutranet\Setup\Http\Middleware\SetupMigratedMiddleware;
+use Eutranet\Commons\Providers\CommonsMenuServiceProvider;
 
 class CommonsServiceProvider extends PackageServiceProvider
 {
@@ -16,10 +17,11 @@ class CommonsServiceProvider extends PackageServiceProvider
 	{
 		$package
 			->name('laravel-commons')
-			->hasConfigFile(['eutranet-commons']) // php artisan vendor:publish --tag=your-laravel-init-name-config
+			->hasConfigFile('eutranet-commons') // php artisan vendor:publish --tag=your-laravel-init-name-config
 			->hasViews('commons')
+			->hasTranslations()
 			// ->hasViewComponent('setup', Alert::class)
-			->hasViewComposer('*', ViewComposer::class)
+			->hasViewComposer('*', CommonsConfigComposer::class)
 			->hasMigrations([
 				'create_marital_statuses_table',
 				'create_appellatives_table',
@@ -38,8 +40,9 @@ class CommonsServiceProvider extends PackageServiceProvider
 				'create_work_regimes_table',
 				'create_work_statuses_table',
 			])
+			->hasViewComposer('commons::config', CommonsConfigComposer::class)
 			->hasCommand(EutranetInstallCommonsCommand::class)
-			->hasRoutes(['web', 'back', 'setup']);
+			->hasRoutes(['config', 'web', 'back', 'setup']);
 		// ->hasMigration('create_package_tables');
 	}
 
@@ -73,8 +76,9 @@ class CommonsServiceProvider extends PackageServiceProvider
 
 	public function register()
 	{
-		$this->loadMigrationsFrom(app_path('Eutranet/Commons/database/migrations'));
 		parent::register();
+		$this->loadMigrationsFrom(app_path('Eutranet/Commons/database/migrations'));
+		$this->app->register(CommonsMenuServiceProvider::class);
 		$this->app->bind('dropdown-facade', function ($name) {
 			return $name;
 		});

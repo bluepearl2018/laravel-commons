@@ -33,7 +33,7 @@ class WorkStatus extends Model
 
 	public static function getClassLead(): string
 	{
-		return '';
+		return trans('work-statuses.class-lead') . ' ' . 'The legal status and classification of someone in employment as either an employee or working on their own account (self-employed). ';
 	}
 
 	/**

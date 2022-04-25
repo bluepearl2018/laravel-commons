@@ -11,7 +11,6 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\Translatable\HasTranslations;
-use Florbela\Commons\Models\Asset;
 
 /**
  * Please note Asset Category does reference CARS and VEHICLES
@@ -41,7 +40,7 @@ class AssetCategory extends Model implements HasMedia
 
 	public static function getClassLead(): string
 	{
-		return '';
+		return trans('asset-categories.class-lead') . ' ' .'An asset is a resource owned or controlled by an individual, corporation, or government with the expectation that it will generate a positive economic benefit. Common types of assets include current, non-current, physical, intangible, operating, and non-operating. Correctly identifying and classifying the types of assets is critical to the survival of a company, specifically its solvency and associated risks.';
 	}
 	
 	/**

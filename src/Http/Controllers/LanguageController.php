@@ -17,10 +17,9 @@ class LanguageController extends BaseCrudController
 	 */
 	public function __construct(Language $language)
 	{
-		$viewPath = 'commons::languages';
 		$resourceName = 'Language';
 		$tableName = 'languages';
-		parent::__construct($language, $viewPath, $resourceName, $tableName);
+		parent::__construct($language, $resourceName, $tableName);
 	}
 
 	/**

@@ -17,10 +17,9 @@ class KinshipController extends BaseCrudController
 	 */
 	public function __construct(Kinship $kinship)
 	{
-		$viewPath = 'commons::kinships';
 		$resourceName = 'Kinship';
 		$tableName = 'kinships';
-		parent::__construct($kinship, $viewPath, $resourceName, $tableName);
+		parent::__construct($kinship, $resourceName, $tableName);
 	}
 
 	/**

@@ -19,10 +19,9 @@ class MediaCollectionController extends BaseCrudController
 	 */
 	public function __construct(MediaCollection $mc)
 	{
-		$viewPath = 'commons::media-collections';
 		$resourceName = 'Media collection';
 		$tableName = 'media_collections';
-		parent::__construct($mc, $viewPath, $resourceName, $tableName);
+		parent::__construct($mc, $resourceName, $tableName);
 	}
 
 	/**

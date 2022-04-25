@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use JetBrains\PhpStorm\ArrayShape;
-use Florbela\Users\Models\UserAsset;
 
 /**
  * Car Class is to describe and save cars with model, etc.
@@ -33,7 +32,7 @@ class Car extends Model
 
 	public static function getClassLead(): string
 	{
-		return '';
+		return trans('cars.class-lead') . ' ' .'A vehicle that has four wheels and an engine and that is used for carrying passengers on roads often used before another noun';
 	}
 
 	/**
@@ -54,16 +53,6 @@ class Car extends Model
 	public function carBrand(): BelongsTo
 	{
 		return $this->belongsTo(CarBrand::class);
-	}
-
-	/**
-	 * Car can be associated to many user assets
-	 *
-	 * @return MorphMany
-	 */
-	public function userAssets(): MorphMany
-	{
-		return $this->morphMany(UserAsset::class, 'assetable');
 	}
 
 	/**

@@ -17,29 +17,29 @@
 				<div class="lg:col-span-2 col-start-1">
 					<ul role="list"
 						class="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:gap-x-8">
-						@forelse($corporate->staffs as $staff)
+						@forelse($corporate->staffMembers as $staffMember)
 							<li>
 								<div class="border shadow-lg rounded-xl">
-									@if($staff->getFirstMediaUrl('staffs'))
+									@if($staffMember->getFirstMediaUrl('staff-members'))
 									<div class="aspect-w-3 aspect-h-2">
 										<img class="object-cover grayscale"
-											 src="{{ $staff->getFirstMediaUrl('staffs') }}"
-											 alt="{{ $staff->first_name }} {{ $staff->last_name }}, {{ $staff->function }}"/>
+											 src="{{ $staffMember->getFirstMediaUrl('staff-members') }}"
+											 alt="{{ $staffMember->first_name }} {{ $staffMember->last_name }}, {{ $staffMember->function }}"/>
 									</div>
 									@endif
 									<div class="text-lg leading-6 font-medium space-y-1 border-b">
-										<h3 class="text-3xl theme-bg px-4 py-2 tracking-wide text-yellow-600 text-right font-extrabold">{{ $staff->first_name.' '.$staff->last_name }}</h3>
-										<p class="text-yellow-800 px-2 py-1 text-right font-extrabold">{{ $staff->function ?? '' }}</p>
+										<h3 class="text-3xl theme-bg px-4 py-2 tracking-wide text-yellow-600 text-right font-extrabold">{{ $staffMember->first_name.' '.$staffMember->last_name }}</h3>
+										<p class="text-yellow-800 px-2 py-1 text-right font-extrabold">{{ $staffMember->function ?? '' }}</p>
 									</div>
 									<div class="text-lg p-8">
-										<p class="text-gray-800 mb-4">{{ $staff->lead }}</p>
+										<p class="text-gray-800 mb-4">{{ $staffMember->lead }}</p>
 										<a class="inline-block text-right w-full"
-										   href="{{ route('admin.staffs.show', [$staff]) }}">{{ __('More ') }}
+										   href="{{ route('admin.staff-members.show', [$staff]) }}">{{ __('More ') }}
 											<i class="fa fa-arrow-right"></i></a>
 									</div>
 
 									<ul role="list" class="flex space-x-5">
-										@isset($staff->twitter)
+										@isset($staffMember->twitter)
 											<li>
 												<a href="#" class="text-gray-400 hover:text-gray-500">
 													<span class="sr-only">Twitter</span>
@@ -50,7 +50,7 @@
 												</a>
 											</li>
 										@endisset
-										@isset($staff->linkedin)
+										@isset($staffMember->linkedin)
 											<li>
 												<a href="#" class="text-gray-400 hover:text-gray-500">
 													<span class="sr-only">LinkedIn</span>
@@ -72,10 +72,10 @@
 				</div>
 				<div class="space-y-5 sm:space-y-2">
 					<div class="theme-bg p-8">
-						<h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-yellow-600 mb-4">{{ $staff->title }}</h2>
-						<p class="text-2xl text-gray-200">{{ $staff->lead  }}</p>
+						<h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-yellow-600 mb-4">{{ $staffMember->title }}</h2>
+						<p class="text-2xl text-gray-200">{{ $staffMember->lead  }}</p>
 					</div>
-					<p class="text-xl text-gray-500 p-4">{{ $staff->body  }}</p>
+					<p class="text-xl text-gray-500 p-4">{{ $staffMember->body  }}</p>
 				</div>
 			</div>
 		</div>

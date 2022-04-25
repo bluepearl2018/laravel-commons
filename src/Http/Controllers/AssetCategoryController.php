@@ -18,10 +18,9 @@ class AssetCategoryController extends BaseCrudController
 	 */
 	public function __construct(AssetCategory $assetCategory)
 	{
-		$viewPath = 'commons::asset-categories';
-		$resourceName = 'Asset Categories';
+		$resourceName = 'AssetCategory';
 		$tableName = 'asset_categories';
-		parent::__construct($assetCategory, $viewPath, $resourceName, $tableName);
+		parent::__construct($assetCategory, $resourceName, $tableName);
 	}
 
 	/**

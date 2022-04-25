@@ -18,10 +18,9 @@ class MaritalStatusController extends BaseCrudController
 	 */
 	public function __construct(MaritalStatus $maritalStatus)
 	{
-		$viewPath = 'commons::marital-statuses';
 		$resourceName = 'Marital status';
 		$tableName = 'marital_statuses';
-		parent::__construct($maritalStatus, $viewPath, $resourceName, $tableName);
+		parent::__construct($maritalStatus, $resourceName, $tableName);
 	}
 
 	/**

@@ -33,7 +33,7 @@ class MaritalStatus extends Model
 
 	public static function getClassLead(): string
 	{
-		return '';
+		return trans('marital-statuses.class-lead') . ' ' . 'Marital status is the legally defined marital state. There are several types of marital status: single, married, widowed, divorced, separated and, in certain cases, registered partnership. Never married persons are persons who never got married in concordance with valid regulations.';
 	}
 
 	#[ArrayShape(['name' => "string[]"])]

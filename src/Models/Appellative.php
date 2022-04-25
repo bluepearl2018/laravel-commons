@@ -2,9 +2,7 @@
 
 namespace Eutranet\Commons\Models;
 
-use Florbela\Users\Models\UserInfo;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use JetBrains\PhpStorm\ArrayShape;
 use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -40,14 +38,14 @@ class Appellative extends Model
 	{
 		// field, type, required, placeholder, tip, model for select
 		return [
-			'name_prefix' => ['input', 'text', 'required', 'Prefix', 'Enter the name prefix'],
-			'name' => ['input', 'text', 'required', 'Name', 'Enter the name'],
+			'name_prefix' => ['input', 'text', 'required', trans('appellatives.Prefix'), trans('appellatives.Enter the name prefix')],
+			'name' => ['input', 'text', 'required', trans('appellatives.Name'), trans('appellatives.Enter the name')],
 		];
 	}
 
 	public static function getClassLead(): string
 	{
-		return '';
+		return trans('appellatives.class-lead') . ' ' .'A common noun, such as "doctor", "sir", "professor", used as a vocative.';
 	}
 
 	/**
@@ -60,12 +58,4 @@ class Appellative extends Model
 		return __NAMESPACE__;
 	}
 
-	/**
-	 * For statitics
-	 * @return HasMany
-	 */
-	public function userInfos(): HasMany
-	{
-		return $this->hasMany(UserInfo::class);
-	}
 }

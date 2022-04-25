@@ -17,10 +17,9 @@ class MatrimonialRegimeController extends BaseCrudController
 	 */
 	public function __construct(MatrimonialRegime $matrimonialRegime)
 	{
-		$viewPath = 'commons::matrimonial-regimes';
 		$resourceName = 'Matrimonial Regime';
 		$tableName = 'matrimonial_regimes';
-		parent::__construct($matrimonialRegime, $viewPath, $resourceName, $tableName);
+		parent::__construct($matrimonialRegime, $resourceName, $tableName);
 	}
 
 	/**

@@ -17,10 +17,9 @@ class UserStatusController extends BaseCrudController
 	 */
 	public function __construct(UserStatus $userStatus)
 	{
-		$viewPath = 'commons::user-statuses';
 		$resourceName = 'User status';
 		$tableName = 'user_statuses';
-		parent::__construct($userStatus, $viewPath, $resourceName, $tableName);
+		parent::__construct($userStatus, $resourceName, $tableName);
 	}
 
 	/**

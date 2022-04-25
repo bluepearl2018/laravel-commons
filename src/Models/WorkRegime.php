@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use JetBrains\PhpStorm\ArrayShape;
 use Spatie\Translatable\HasTranslations;
-use Florbela\Users\Models\UserEmployment;
 
 /**
  * Work Regime is to describe and save work regimes
@@ -34,7 +33,7 @@ class WorkRegime extends Model
 
 	public static function getClassLead(): string
 	{
-		return '';
+		return trans('work-regimes.class-lead'). ' ' . '"contractual", "seasonal", "interim", "casual staff", "outsourcing", "freelance", "part-time", "full-time"';
 	}
 
 	/**

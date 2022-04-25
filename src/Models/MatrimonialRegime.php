@@ -34,7 +34,7 @@ class MatrimonialRegime extends Model
 
 	public static function getClassLead(): string
 	{
-		return '';
+		return trans('matrimonial-regimes.class-lead') . ' ' . 'Matrimonial regimes, or marital property systems, are systems of property ownership between spouses providing for the creation or absence of a marital estate and if created, what properties are included in that estate, how and by whom it is managed, and how it will be divided and inherited at the end of the marriage. Matrimonial regimes are applied either by operation of law or by way of prenuptial agreement in civil-law countries, and depend on the lex domicilii of the spouses at the time of or immediately following the wedding.';
 	}
 	
 	#[ArrayShape(['name' => "string[]"])] public function getFields(): array

@@ -17,10 +17,9 @@ class CarBrandController extends BaseCrudController
 	 */
 	public function __construct(CarBrand $carBrand)
 	{
-		$viewPath = 'commons::setup.car-brands';
 		$resourceName = 'Car brand';
 		$tableName = 'car_brands';
-		parent::__construct($carBrand, $viewPath, $resourceName, $tableName);
+		parent::__construct($carBrand, $resourceName, $tableName);
 	}
 
 	/**

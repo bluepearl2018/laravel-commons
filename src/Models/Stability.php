@@ -42,7 +42,7 @@ class Stability extends Model
 
 	public static function getClassLead(): string
 	{
-		return '';
+		return trans('stabilities.class-lead') . ' ' . 'Stability is the quality of being unchanging...';
 	}
 
 	/**

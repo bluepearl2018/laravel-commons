@@ -18,10 +18,9 @@ class StabilityController extends BaseCrudController
 	 */
 	public function __construct(Stability $stability)
 	{
-		$viewPath = 'commons::stabilities';
 		$resourceName = 'Stability';
 		$tableName = 'stabilities';
-		parent::__construct($stability, $viewPath, $resourceName, $tableName);
+		parent::__construct($stability, $resourceName, $tableName);
 	}
 
 	/**

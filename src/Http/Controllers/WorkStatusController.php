@@ -18,10 +18,9 @@ class WorkStatusController extends BaseCrudController
 	 */
 	public function __construct(WorkStatus $workStatus)
 	{
-		$viewPath = 'commons::work-statuses';
 		$resourceName = 'Work status';
 		$tableName = 'work_statuses';
-		parent::__construct($workStatus, $viewPath, $resourceName, $tableName);
+		parent::__construct($workStatus, $resourceName, $tableName);
 	}
 
 	/**

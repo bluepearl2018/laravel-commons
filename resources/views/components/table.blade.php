@@ -1,9 +1,9 @@
 <div xmlns:x-theme="http://www.w3.org/1999/html">
 	<div class="sm:flex sm:items-center">
 		<div class="sm:flex-auto">
-			<x-theme::h1
+			<x-theme-h1
 					class="text-xl font-semibold text-gray-900">{{__('Listing of') }} {{ __(Str::title(Str::replace('-', ' ', Str::plural($class)))) }}
-			</x-theme::h1>
+			</x-theme-h1>
 			<p class="mt-2 text-md text-gray-700">{{ $lead  }}</p>
 		</div>
 		<div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">

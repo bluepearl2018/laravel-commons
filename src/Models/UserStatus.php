@@ -34,7 +34,7 @@ class UserStatus extends Model
 
 	public static function getClassLead(): string
 	{
-		return '';
+		return trans('user-statuses.class-lead'). ' ' . 'User status is the status for orders or notifications which can be set/reset by user. It is same as system status. But in case of system status the system generate the status. User cannot do anything to stop or to change the system status';
 	}
 
 	/**

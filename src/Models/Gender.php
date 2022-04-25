@@ -31,7 +31,7 @@ class Gender extends Model
 
 	public static function getClassLead(): string
 	{
-		return "Gender is the range of characteristics pertaining to femininity and masculinity 
+		return trans('genders.class-lead') . ' ' . "Gender is the range of characteristics pertaining to femininity and masculinity 
 		and differentiating between them. Depending on the context, this may include sex-based social 
 		structures (i.e. gender roles) and gender identity.[1][2][3] Most cultures use a gender binary, 
 		having two genders (boys/men and girls/women);[4][5][6] those who exist outside these groups may 

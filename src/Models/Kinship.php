@@ -32,7 +32,7 @@ class Kinship extends Model
 
 	public static function getClassLead(): string
 	{
-		return '';
+		return trans('kinships.class-lead') . ' ' . 'In anthropology, kinship is the web of social relationships that form an important part of the lives of all humans in all societies, although its exact meanings even within this discipline are often debated. Anthropologist Robin Fox says that the study of kinship is the study of what humans do with these basic facts of life – mating, gestation, parenthood, socialization, siblingship etc. Human society is unique, he argues, in that we are "working with the same raw material as exists in the animal world, but [we] can conceptualize and categorize it to serve social ends."[1] These social ends include the socialization of children and the formation of basic economic, political and religious groups.';
 	}
 
 	/**

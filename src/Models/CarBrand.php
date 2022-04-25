@@ -26,7 +26,7 @@ class CarBrand extends Model
 
 	public static function getClassLead(): string
 	{
-		return '';
+		return trans('car-brands.class-lead') . ' ' .'More info about car brands here --> https://en.wikipedia.org/wiki/List_of_car_brands';
 	}
 	
 	/**

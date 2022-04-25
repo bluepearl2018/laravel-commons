@@ -30,14 +30,14 @@ class Language extends Model
 	{
 		// field, type, required, placeholder, tip, model for select
 		return [
-			'code' => ['input', 'text', 'required', 'Slug', 'Enter the code (ISO 2)'],
-			'name' => ['input', 'text', 'required', 'Name', 'Enter the name'],
+			'code' => ['input', 'text', 'required', trans('languages.Slug'), trans('languages.Enter the code (ISO 2)')],
+			'name' => ['input', 'text', 'required', trans('languages.Name'), trans('languages.Enter the name')],
 		];
 	}
 
 	public static function getClassLead(): string
 	{
-		return '';
+		return trans('languages.class-lead') . ' ' . 'A language is a structured system of communication. The structure of a language is its grammar and the free components are its vocabulary. Languages are the primary means of communication of humans, and can be conveyed through speech (spoken language), sign, or writing. Many languages, including the most widely-spoken ones, have writing systems that enable sounds or signs to be recorded for later reactivation. Human language is unique among the known systems of animal communication in that it is not dependent on a single mode of transmission (sight, sound, etc.), is highly variable between cultures and across time, and affords a much wider range of expression than other systems';
 	}
 	
 	/**

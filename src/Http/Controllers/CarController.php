@@ -20,10 +20,9 @@ class CarController extends BaseCrudController
 	 */
 	public function __construct(Car $car)
 	{
-		$viewPath = 'commons::cars';
 		$resourceName = 'Car';
 		$tableName = 'cars';
-		parent::__construct($car, $viewPath, $resourceName, $tableName);
+		parent::__construct($car, $resourceName, $tableName);
 	}
 
 	/**

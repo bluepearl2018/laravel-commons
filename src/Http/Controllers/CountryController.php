@@ -17,10 +17,9 @@ class CountryController extends BaseCrudController
 	 */
 	public function __construct(Country $country)
 	{
-		$viewPath = 'commons::countries';
 		$resourceName = 'Country';
 		$tableName = 'countries';
-		parent::__construct($country, $viewPath, $resourceName, $tableName);
+		parent::__construct($country, $resourceName, $tableName);
 	}
 
 	/**

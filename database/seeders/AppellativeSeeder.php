@@ -17,7 +17,7 @@ class AppellativeSeeder extends Seeder
 	 */
 	public function run()
 	{
-		$appellatives = [
+		$users = [
 			[
 				'id' => '1',
 				'name' => '{"en":"Mister", "fr":"Monsieur", "pt":"Senhor"}',
@@ -54,7 +54,7 @@ class AppellativeSeeder extends Seeder
 
 		if (Appellative::count() < 1) {
 			DB::table('appellatives')->insert(
-				$appellatives
+				$users
 			);
 		}
 

@@ -17,10 +17,9 @@ class GenderController extends BaseCrudController
 	 */
 	public function __construct(Gender $gender)
 	{
-		$viewPath = 'commons::genders';
 		$resourceName = 'Gender';
 		$tableName = 'genders';
-		parent::__construct($gender, $viewPath, $resourceName, $tableName);
+		parent::__construct($gender, $resourceName, $tableName);
 	}
 
 	/**

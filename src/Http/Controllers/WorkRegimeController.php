@@ -18,10 +18,9 @@ class WorkRegimeController extends BaseCrudController
 	 */
 	public function __construct(WorkRegime $workRegime)
 	{
-		$viewPath = 'commons::work-regimes';
 		$resourceName = 'Work regime';
 		$tableName = 'work_regimes';
-		parent::__construct($workRegime, $viewPath, $resourceName, $tableName);
+		parent::__construct($workRegime, $resourceName, $tableName);
 	}
 
 	/**

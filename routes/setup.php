@@ -15,6 +15,7 @@ use Eutranet\Commons\Http\Controllers\UserStatusController;
 use Eutranet\Commons\Http\Controllers\WorkRegimeController;
 use Eutranet\Commons\Http\Controllers\WorkStatusController;
 use Eutranet\Init\Http\Controllers\CheckupController;
+use Eutranet\Commons\Http\Controllers\AssetCategoryController;
 
 /**
  * -----------------------------------------------------------------------------*
@@ -27,6 +28,7 @@ Route::middleware(['web'])->group(function () {
 	Route::prefix('setup')->name('setup.')->middleware(['role:content-manager', 'auth:admin'])->group(
 		function () {
 			Route::resource('appellatives', AppellativeController::class)->names('appellatives');
+			Route::resource('asset-categories', AssetCategoryController::class)->names('asset-categories');
 			Route::resource('cars', CarController::class)->names('cars');
 			Route::resource('car-brands', CarBrandController::class)->names('car-brands');
 			Route::resource('countries', CountryController::class)->names('countries');
