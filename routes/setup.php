@@ -14,7 +14,6 @@ use Eutranet\Commons\Http\Controllers\StabilityController;
 use Eutranet\Commons\Http\Controllers\UserStatusController;
 use Eutranet\Commons\Http\Controllers\WorkRegimeController;
 use Eutranet\Commons\Http\Controllers\WorkStatusController;
-use Eutranet\Init\Http\Controllers\CheckupController;
 use Eutranet\Commons\Http\Controllers\AssetCategoryController;
 
 /**
