@@ -8,8 +8,8 @@ use Eutranet\Commons\View\Composers\CommonsConfigComposer;
 use Eutranet\Commons\Console\Commands\EutranetInstallCommonsCommand;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Routing\Router;
-use Eutranet\Setup\Http\Middleware\SetupMigratedMiddleware;
 use Eutranet\Commons\Providers\CommonsMenuServiceProvider;
+use Eutranet\Commons\Http\Middleware\CommonsMigratedMiddleware;
 
 class CommonsServiceProvider extends PackageServiceProvider
 {
@@ -53,7 +53,7 @@ class CommonsServiceProvider extends PackageServiceProvider
         $this->registerRoutes();
 
         $router = $this->app->make(Router::class);
-        $router->aliasMiddleware('commons-migrated', SetupMigratedMiddleware::class);
+        $router->aliasMiddleware('commons-migrated', CommonsMigratedMiddleware::class);
         $router->pushMiddlewareToGroup('web', 'commons-migrated');
     }
 
