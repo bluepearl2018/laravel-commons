@@ -7107,7 +7107,7 @@ class CarSeeder extends Seeder
 		if (Car::count() < 1) {
 			$assetCatId = AssetCategory::where('code', 'vehicles')->get()->first()->id;
 			foreach ($cars as $c) {
-				$c = array_add($c, 'asset_category_id', $assetCatId);
+				$c = \Arr::add($c, 'asset_category_id', $assetCatId);
 				Car::create(
 					$c
 				);
