@@ -11,15 +11,15 @@ use Illuminate\Contracts\Foundation\Application;
 
 abstract class ValidationFacade extends Facade
 {
-	protected string $name;
+    protected string $name;
 
-	public function __construct($name)
-	{
-		$this->name = $name;
-	}
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
 
-	public static function display(): View|Factory|Application
-	{
-		return view('commons::components.validation');
-	}
+    public static function display(): View|Factory|Application
+    {
+        return view('commons::components.validation');
+    }
 }

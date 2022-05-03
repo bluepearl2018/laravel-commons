@@ -12,36 +12,35 @@ use Illuminate\Http\Request;
  */
 class WorkRegimeController extends BaseCrudController
 {
+    /**
+     * @param WorkRegime $workRegime
+     */
+    public function __construct(WorkRegime $workRegime)
+    {
+        $resourceName = 'Work regime';
+        $tableName = 'work_regimes';
+        parent::__construct($workRegime, $resourceName, $tableName);
+    }
 
-	/**
-	 * @param WorkRegime $workRegime
-	 */
-	public function __construct(WorkRegime $workRegime)
-	{
-		$resourceName = 'Work regime';
-		$tableName = 'work_regimes';
-		parent::__construct($workRegime, $resourceName, $tableName);
-	}
+    /**
+     * @return mixed
+     */
+    public function inputStore(Request $request): array
+    {
+        $rules = [
+            'name' => 'required|string|max:50',
+        ];
+        return $request->validate($rules);
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function inputStore(Request $request): array
-	{
-		$rules = [
-			'name' => 'required|string|max:50',
-		];
-		return $request->validate($rules);
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function inputUpdate(Request $request): array
-	{
-		$rules = [
-			'name' => 'required|string|max:50',
-		];
-		return $request->validate($rules);
-	}
+    /**
+     * @return mixed
+     */
+    public function inputUpdate(Request $request): array
+    {
+        $rules = [
+            'name' => 'required|string|max:50',
+        ];
+        return $request->validate($rules);
+    }
 }

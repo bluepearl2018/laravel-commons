@@ -12,40 +12,39 @@ use Illuminate\Http\Request;
  */
 class StabilityController extends BaseCrudController
 {
+    /**
+     * @param Stability $stability
+     */
+    public function __construct(Stability $stability)
+    {
+        $resourceName = 'Stability';
+        $tableName = 'stabilities';
+        parent::__construct($stability, $resourceName, $tableName);
+    }
 
-	/**
-	 * @param Stability $stability
-	 */
-	public function __construct(Stability $stability)
-	{
-		$resourceName = 'Stability';
-		$tableName = 'stabilities';
-		parent::__construct($stability, $resourceName, $tableName);
-	}
+    /**
+     * @return mixed
+     */
+    public function inputStore(Request $request): array
+    {
+        $rules = [
+            'code' => 'required|string|max:50',
+            'name' => 'required|string|max:50',
+            'description' => 'nullable|string|max:240',
+        ];
+        return $request->validate($rules);
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function inputStore(Request $request): array
-	{
-		$rules = [
-			'code' => 'required|string|max:50',
-			'name' => 'required|string|max:50',
-			'description' => 'nullable|string|max:240',
-		];
-		return $request->validate($rules);
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function inputUpdate(Request $request): array
-	{
-		$rules = [
-			'code' => 'required|string|max:50',
-			'name' => 'required|string|max:50',
-			'description' => 'nullable|string|max:240',
-		];
-		return $request->validate($rules);
-	}
+    /**
+     * @return mixed
+     */
+    public function inputUpdate(Request $request): array
+    {
+        $rules = [
+            'code' => 'required|string|max:50',
+            'name' => 'required|string|max:50',
+            'description' => 'nullable|string|max:240',
+        ];
+        return $request->validate($rules);
+    }
 }

@@ -11,38 +11,38 @@ use Illuminate\Http\Request;
  */
 class CarBrandController extends BaseCrudController
 {
+    /**
+     * @param CarBrand $carBrand
+     */
+    public function __construct(CarBrand $carBrand)
+    {
+        $this->middleware(['auth:admin']);
+        $resourceName = 'Car brand';
+        $tableName = 'car_brands';
+        parent::__construct($carBrand, $resourceName, $tableName);
+    }
 
-	/**
-	 * @param CarBrand $carBrand
-	 */
-	public function __construct(CarBrand $carBrand)
-	{
-		$resourceName = 'Car brand';
-		$tableName = 'car_brands';
-		parent::__construct($carBrand, $resourceName, $tableName);
-	}
+    /**
+     * @return mixed
+     */
+    public function inputStore(Request $request): array
+    {
+        $rules = [
+            'name' => 'string|max:50',
+            'code' => 'string|max:5'
+        ];
+        return $request->validate($rules);
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function inputStore(Request $request): array
-	{
-		$rules = [
-			'name' => 'string|max:50',
-			'code' => 'string|max:5'
-		];
-		return $request->validate($rules);
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function inputUpdate(Request $request): array
-	{
-		$rules = [
-			'name' => 'string|max:50',
-			'code' => 'string|max:5'
-		];
-		return $request->validate($rules);
-	}
+    /**
+     * @return mixed
+     */
+    public function inputUpdate(Request $request): array
+    {
+        $rules = [
+            'name' => 'string|max:50',
+            'code' => 'string|max:5'
+        ];
+        return $request->validate($rules);
+    }
 }

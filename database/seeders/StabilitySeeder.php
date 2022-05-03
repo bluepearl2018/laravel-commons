@@ -12,33 +12,32 @@ use Eutranet\Commons\Models\Stability;
 
 class StabilitySeeder extends Seeder
 {
-	/**
-	 * Seed the application's database.
-	 *
-	 * @return void
-	 */
-	public function run()
-	{
+    /**
+     * Seed the application's database.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $demoArray = array(
+            array(
+                'code' => 'stable',
+                'name' => '{"en":"Stable", "fr":"Stable", "pt":"Estável"}',
+                'description' => '{"en":"Is stable", "fr":"Stable", "pt":Situação estável"}',
+            ),
+            array(
+                'code' => 'unstable',
+                'name' => '{"en":"Unstable", "fr":"Instable", "pt":"Instável"}',
+                'description' => '{"en":"Is unstable", "fr":"Instable", "pt":Situação instável"}',
+            ),
+        );
 
-		$demoArray = array(
-			array(
-				'code' => 'stable',
-				'name' => '{"en":"Stable", "fr":"Stable", "pt":"Estável"}',
-				'description' => '{"en":"Is stable", "fr":"Stable", "pt":Situação estável"}',
-			),
-			array(
-				'code' => 'unstable',
-				'name' => '{"en":"Unstable", "fr":"Instable", "pt":"Instável"}',
-				'description' => '{"en":"Is unstable", "fr":"Instable", "pt":Situação instável"}',
-			),
-		);
-
-		if (Stability::count() < 1) {
-			foreach ($demoArray as $l) {
-				\DB::table('stabilities')->insert(
-					$l
-				);
-			}
-		}
-	}
+        if (Stability::count() < 1) {
+            foreach ($demoArray as $l) {
+                \DB::table('stabilities')->insert(
+                    $l
+                );
+            }
+        }
+    }
 }

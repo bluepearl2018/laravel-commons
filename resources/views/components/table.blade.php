@@ -1,4 +1,4 @@
-<div xmlns:x-theme="http://www.w3.org/1999/html">
+<div">
 	<div class="sm:flex sm:items-center">
 		<div class="sm:flex-auto">
 			<x-theme-h1

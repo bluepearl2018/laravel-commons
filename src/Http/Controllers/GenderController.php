@@ -11,38 +11,37 @@ use Illuminate\Http\Request;
  */
 class GenderController extends BaseCrudController
 {
+    /**
+     * @param Gender $gender
+     */
+    public function __construct(Gender $gender)
+    {
+        $resourceName = 'Gender';
+        $tableName = 'genders';
+        parent::__construct($gender, $resourceName, $tableName);
+    }
 
-	/**
-	 * @param Gender $gender
-	 */
-	public function __construct(Gender $gender)
-	{
-		$resourceName = 'Gender';
-		$tableName = 'genders';
-		parent::__construct($gender, $resourceName, $tableName);
-	}
+    /**
+     * @return mixed
+     */
+    public function inputStore(Request $request): array
+    {
+        $rules = [
+            'name_abbrev' => 'string|max:20|not_in:genders,name_abbrev',
+            'name' => 'string|max:50'
+        ];
+        return $request->validate($rules);
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function inputStore(Request $request): array
-	{
-		$rules = [
-			'name_abbrev' => 'string|max:20|not_in:genders,name_abbrev',
-			'name' => 'string|max:50'
-		];
-		return $request->validate($rules);
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function inputUpdate(Request $request): array
-	{
-		$rules = [
-			'name_abbrev' => 'string|max:20|not_in:genders,name_abbrev',
-			'name' => 'string|max:50'
-		];
-		return $request->validate($rules);
-	}
+    /**
+     * @return mixed
+     */
+    public function inputUpdate(Request $request): array
+    {
+        $rules = [
+            'name_abbrev' => 'string|max:20|not_in:genders,name_abbrev',
+            'name' => 'string|max:50'
+        ];
+        return $request->validate($rules);
+    }
 }

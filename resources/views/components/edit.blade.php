@@ -1,4 +1,4 @@
-<div class="sm:flex sm:items-center" xmlns:x-theme="http://www.w3.org/1999/html">
+<div class="sm:flex sm:items-center">
 	<div class="sm:flex-auto">
 		<x-theme-h1>
 			{{ __('Edit ') . __(Str::title(Str::snake($name))) }} ({{ __('Details') }})
@@ -12,6 +12,7 @@
 		</a>
 	</div>
 </div>
+<x-theme-form-validation-errors></x-theme-form-validation-errors>
 <div class="content-panel mt-6">
 	<div class="columns-1">
 		<form id="{{$class}}-update-frm" method="POST"

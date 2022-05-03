@@ -12,32 +12,33 @@ use Illuminate\Support\Facades\Request;
 
 abstract class ListFacade extends Facade
 {
-	protected string $name;
+    protected string $name;
 
-	public function __construct($name)
-	{
-		$this->name = $name;
-	}
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
 
-	public static function display($packageName, $class, ...$fields): View|Factory|Application
-	{
-		$namespace = 'Eutranet\\' . Str::Studly($packageName) . '\\Models';
-		$name = '\\' . $namespace . '\\' . Str::studly($class);
-		$entries = $name::all();
-		if ($name::getFields()) {
-			return view($packageName . '::components.list',
-				[
-					'class' => $class,
-					'lead' => $name::getClassLead(),
-					'fields' => $name::getFields(),
-					'model' => $name,
-					'entries' => $entries,
-					'readonly' => $readonly ?? NULL,
-					'routePrefix' => Request::route()->getPrefix() !== NULL ? Request::route()->getPrefix() . '.' : '',
-				]
-			);
-		} else {
-			return view($packageName . '::components.error', ['error' => __('Missing getFields()')]);
-		}
-	}
+    public static function display($packageName, $class, ...$fields): View|Factory|Application
+    {
+        $namespace = 'Eutranet\\' . Str::Studly($packageName) . '\\Models';
+        $name = '\\' . $namespace . '\\' . Str::studly($class);
+        $entries = $name::all();
+        if ($name::getFields()) {
+            return view(
+                $packageName . '::components.list',
+                [
+                    'class' => $class,
+                    'lead' => $name::getClassLead(),
+                    'fields' => $name::getFields(),
+                    'model' => $name,
+                    'entries' => $entries,
+                    'readonly' => $readonly ?? null,
+                    'routePrefix' => Request::route()->getPrefix() !== null ? Request::route()->getPrefix() . '.' : '',
+                ]
+            );
+        } else {
+            return view($packageName . '::components.error', ['error' => __('Missing getFields()')]);
+        }
+    }
 }

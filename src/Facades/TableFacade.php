@@ -13,38 +13,37 @@ use Illuminate\Database\Schema\Blueprint;
 
 abstract class TableFacade extends Facade
 {
-	protected string $name;
+    protected string $name;
 
-	public function __construct($name)
-	{
-		$this->name = $name;
-	}
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
 
-	public static function display($packageName, $class, array $filter = null): View|Factory|Application
-	{
-		$namespace = 'Eutranet\\' . Str::Studly($packageName) . '\\Models';
-		$name = '\\' . $namespace . '\\' . Str::studly($class);
-		if(!empty($filter))
-		{
-			$entries = $name::where($filter[0], $filter[1])->paginate(10);
-		}
-		else{
-			$entries = $name::all();
-		}
-		if ($name::getFields()) {
-			return view($packageName . '::components.list',
-				[
-					'class' => $class,
-					'lead' => $name::getClassLead(),
-					'fields' => $name::getFields(),
-					'model' => $name,
-					'entries' => $entries,
-					'readonly' => $readonly ?? NULL,
-					'routePrefix' => Request::route()->getPrefix() !== NULL ? Request::route()->getPrefix() . '.' : ''
-				]
-			);
-		} else {
-			return view($packageName . '::components.error', ['error' => __('Missing getFields()')]);
-		}
-	}
+    public static function display($packageName, $class, array $filter = null): View|Factory|Application
+    {
+        $namespace = 'Eutranet\\' . Str::Studly($packageName) . '\\Models';
+        $name = '\\' . $namespace . '\\' . Str::studly($class);
+        if (!empty($filter)) {
+            $entries = $name::where($filter[0], $filter[1])->paginate(10);
+        } else {
+            $entries = $name::all();
+        }
+        if ($name::getFields()) {
+            return view(
+                $packageName . '::components.list',
+                [
+                    'class' => $class,
+                    'lead' => $name::getClassLead(),
+                    'fields' => $name::getFields(),
+                    'model' => $name,
+                    'entries' => $entries,
+                    'readonly' => $readonly ?? null,
+                    'routePrefix' => Request::route()->getPrefix() !== null ? Request::route()->getPrefix() . '.' : ''
+                ]
+            );
+        } else {
+            return view($packageName . '::components.error', ['error' => __('Missing getFields()')]);
+        }
+    }
 }

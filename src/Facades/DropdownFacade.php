@@ -11,31 +11,32 @@ use Illuminate\Contracts\Foundation\Application;
 
 abstract class DropdownFacade extends Facade
 {
-	protected string $name;
+    protected string $name;
 
-	public function __construct($name)
-	{
-		$this->name = $name;
-	}
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
 
-	public static function display($packageName, $class, $required = NULL, $disabled = NULL, $readonly = NULL): View|Factory|Application
-	{
-		$namespace = 'Eutranet\\' . Str::Studly($packageName) . '\\Models';
-		$name = '\\' . $namespace . '\\' . Str::studly($class);
-		$entries = $name::all();
-		return view($packageName . '::components.dropdown',
-			[
-				'name' => Str::snake(Str::Studly($class)),
-				'id' => $name . '-id',
-				'label' => trans('commons::fields.' . $class),
-				'placeholder' => trans('commons::placeholder.Select a ' . Str::title($class) . ' from the list'),
-				'tip' => trans('commons::tip.Select a ' . Str::title($class) . ' from the list'),
-				'required' => $required ?? false,
-				'disabled' => $disabled ?? false,
-				'old' => old(Str::snake(Str::Studly($class)) . '_id') ?? NULL,
-				'entries' => $entries,
-				'readonly' => $readonly ?? NULL
-			]
-		);
-	}
+    public static function display($packageName, $class, $required = null, $disabled = null, $readonly = null): View|Factory|Application
+    {
+        $namespace = 'Eutranet\\' . Str::Studly($packageName) . '\\Models';
+        $name = '\\' . $namespace . '\\' . Str::studly($class);
+        $entries = $name::all();
+        return view(
+            $packageName . '::components.dropdown',
+            [
+                'name' => Str::snake(Str::Studly($class)),
+                'id' => $name . '-id',
+                'label' => trans('commons::fields.' . $class),
+                'placeholder' => trans('commons::placeholder.Select a ' . Str::title($class) . ' from the list'),
+                'tip' => trans('commons::tip.Select a ' . Str::title($class) . ' from the list'),
+                'required' => $required ?? false,
+                'disabled' => $disabled ?? false,
+                'old' => old(Str::snake(Str::Studly($class)) . '_id') ?? null,
+                'entries' => $entries,
+                'readonly' => $readonly ?? null
+            ]
+        );
+    }
 }

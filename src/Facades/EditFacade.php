@@ -12,33 +12,34 @@ use Illuminate\Support\Facades\Request;
 
 abstract class EditFacade extends Facade
 {
-	protected string $name;
+    protected string $name;
 
-	public function __construct($name)
-	{
-		$this->name = $name;
-	}
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
 
-	public static function display($packageName, $class, $id, $routePrefix): View|Factory|Application
-	{
-		$namespace = 'Eutranet\\' . Str::Studly($packageName) . '\\Models';
-		$name = '\\' . $namespace . '\\' . Str::studly($class);
-		$entry = $name::find($id);
-		$fields = $name::getFields();
-		if ($name::getFields()) {
-			return view($packageName . '::components.edit',
-				[
-					'name' => Str::snake(Str::Studly($class)),
-					'id' => $name . '-id',
-					'class' => $class,
-					'lead' => $name::getClassLead(),
-					'entry' => $entry,
-					'fields' => $fields,
-					'routePrefix' => Request::route()->getPrefix() !== NULL ? Request::route()->getPrefix() . '.' : '',
-				]
-			);
-		} else {
-			return view($packageName . '::components.error', ['error' => __('Missing getFields()')]);
-		}
-	}
+    public static function display($packageName, $class, $id): View|Factory|Application
+    {
+        $namespace = 'Eutranet\\' . Str::Studly($packageName) . '\\Models';
+        $name = '\\' . $namespace . '\\' . Str::studly($class);
+        $entry = $name::find($id);
+        $fields = $name::getFields();
+        if ($name::getFields()) {
+            return view(
+                $packageName . '::components.edit',
+                [
+                    'name' => Str::snake(Str::Studly($class)),
+                    'id' => $name . '-id',
+                    'class' => $class,
+                    'lead' => $name::getClassLead(),
+                    'entry' => $entry,
+                    'fields' => $fields,
+                    'routePrefix' => Str::replace('/', '', Request::route()->getPrefix()) !== null ? Str::replace('/', '', Request::route()->getPrefix()) . '.' : '',
+                ]
+            );
+        } else {
+            return view($packageName . '::components.error', ['error' => __('Missing getFields()')]);
+        }
+    }
 }

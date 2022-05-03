@@ -12,36 +12,35 @@ use Illuminate\Http\Request;
  */
 class WorkStatusController extends BaseCrudController
 {
+    /**
+     * Admin can manage assets
+     */
+    public function __construct(WorkStatus $workStatus)
+    {
+        $resourceName = 'Work status';
+        $tableName = 'work_statuses';
+        parent::__construct($workStatus, $resourceName, $tableName);
+    }
 
-	/**
-	 * Admin can manage assets
-	 */
-	public function __construct(WorkStatus $workStatus)
-	{
-		$resourceName = 'Work status';
-		$tableName = 'work_statuses';
-		parent::__construct($workStatus, $resourceName, $tableName);
-	}
+    /**
+     * @return mixed
+     */
+    public function inputStore(Request $request): array
+    {
+        $rules = [
+            'name' => 'required|string|max:50',
+        ];
+        return $request->validate($rules);
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function inputStore(Request $request): array
-	{
-		$rules = [
-			'name' => 'required|string|max:50',
-		];
-		return $request->validate($rules);
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function inputUpdate(Request $request): array
-	{
-		$rules = [
-			'name' => 'required|string|max:50',
-		];
-		return $request->validate($rules);
-	}
+    /**
+     * @return mixed
+     */
+    public function inputUpdate(Request $request): array
+    {
+        $rules = [
+            'name' => 'required|string|max:50',
+        ];
+        return $request->validate($rules);
+    }
 }

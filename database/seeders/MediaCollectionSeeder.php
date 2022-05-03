@@ -10,15 +10,15 @@ use Eutranet\Commons\Models\MatrimonialRegime;
 
 class MediaCollectionSeeder extends Seeder
 {
-	/**
-	 * Seed the application's database.
-	 *
-	 * @return void
-	 */
-	public function run()
-	{
-//		DB::table('media_collections')->insert(
+    /**
+     * Seed the application's database.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        //		DB::table('media_collections')->insert(
 //			//
 //		);
-	}
+    }
 }

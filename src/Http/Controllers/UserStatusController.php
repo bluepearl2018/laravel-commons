@@ -12,39 +12,39 @@ use Illuminate\Http\Request;
  */
 class UserStatusController extends BaseCrudController
 {
-	/**
-	 * @param UserStatus $userStatus
-	 */
-	public function __construct(UserStatus $userStatus)
-	{
-		$resourceName = 'User status';
-		$tableName = 'user_statuses';
-		parent::__construct($userStatus, $resourceName, $tableName);
-	}
+    /**
+     * @param UserStatus $userStatus
+     */
+    public function __construct(UserStatus $userStatus)
+    {
+        $resourceName = 'User status';
+        $tableName = 'user_statuses';
+        parent::__construct($userStatus, $resourceName, $tableName);
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function inputStore(Request $request): array
-	{
-		$rules = [
-			'code' => 'required|string|max:50',
-			'name' => 'required|string|max:50',
-			'description' => 'nullable|string|max:240'
-		];
-		return $request->validate($rules);
-	}
+    /**
+     * @return mixed
+     */
+    public function inputStore(Request $request): array
+    {
+        $rules = [
+            'code' => 'required|string|max:50',
+            'name' => 'required|string|max:50',
+            'description' => 'nullable|string|max:240'
+        ];
+        return $request->validate($rules);
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function inputUpdate(Request $request): array
-	{
-		$rules = [
-			'code' => 'required|string|max:50',
-			'name' => 'required|string|max:50',
-			'description' => 'nullable|string|max:240'
-		];
-		return $request->validate($rules);
-	}
+    /**
+     * @return mixed
+     */
+    public function inputUpdate(Request $request): array
+    {
+        $rules = [
+            'code' => 'required|string|max:50',
+            'name' => 'required|string|max:50',
+            'description' => 'nullable|string|max:240'
+        ];
+        return $request->validate($rules);
+    }
 }

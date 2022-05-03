@@ -25,7 +25,7 @@
 						@endif
 					</div>
 					<div class="lg:table-cell text-right">
-						<a href="{{route('setup.' . Str::plural(Str::slug(Str::snake($model))) . '.index')}}" class=""><i class="fa fa-cogs text-gray-500"></i></a>
+						<a href="{{route('setup.' . Str::plural(Str::slug(Str::snake($model))) . '.index')}}" class="><i class="fa fa-cogs text-gray-500"></i></a>
 					</div>
 				</div>
 			@empty

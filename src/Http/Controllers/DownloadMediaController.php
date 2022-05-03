@@ -12,18 +12,17 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
  */
 class DownloadMediaController extends Controller
 {
-	public function __construct()
-	{
+    public function __construct()
+    {
+    }
 
-	}
-
-	/**
-	 * @param User|null $user
-	 * @param Media $mediaItem
-	 * @return BinaryFileResponse
-	 */
-	public function show(?User $user, Media $mediaItem): BinaryFileResponse
-	{
-		return response()->download($mediaItem->getPath());
-	}
+    /**
+     * @param User|null $user
+     * @param Media $mediaItem
+     * @return BinaryFileResponse
+     */
+    public function show(?User $user, Media $mediaItem): BinaryFileResponse
+    {
+        return response()->download($mediaItem->getPath());
+    }
 }

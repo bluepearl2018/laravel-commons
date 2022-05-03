@@ -1,4 +1,4 @@
-@extends('frontend::layouts.master')
+@extends('commons::layouts.master')
 @auth('admin')
 @section('content')
 	<x-theme-h1>About laravel commons</x-theme-h1>

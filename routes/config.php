@@ -1,5 +1,13 @@
 <?php
 
-Route::middleware(['web', 'auth:admin'])->get('/setup/commons/config', function(){
-	return view('commons::config');
+/**
+ * -----------------------------------------------------------------------------*
+ * EUTRANT COMMONS CONFIG ROUTES
+ * -----------------------------------------------------------------------------*
+ * Routes that should be made available to main administrators
+ * Todo check this
+ */
+
+Route::middleware(['web', 'auth:admin'])->get('/setup/commons/config', function () {
+    return view('commons::config');
 })->name('setup.commons.config');

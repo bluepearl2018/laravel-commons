@@ -15,44 +15,43 @@ use Spatie\Translatable\HasTranslations;
  */
 class UserStatus extends Model
 {
+    use HasTranslations;
 
-	use HasTranslations;
+    protected $table = "user_statuses";
+    protected $fillable = ['code', 'name', 'description'];
+    protected array $translatable = ['name', 'description'];
 
-	protected $table = "user_statuses";
-	protected $fillable = ['code', 'name', 'description'];
-	protected array $translatable = ['name', 'description'];
+    #[ArrayShape(['code' => "string[]", 'name' => "string[]", 'description' => "string[]"])]
+    public static function getFields(): array
+    {
+        return [
+            'code' => ['input', 'text', 'required', 'Code', 'Enter a code'],
+            'name' => ['input', 'text', 'required', 'Name', 'Enter the name'],
+            'description' => ['input', 'textarea', 'optional', 'Description', 'Enter the description'],
+        ];
+    }
 
-	#[ArrayShape(['code' => "string[]", 'name' => "string[]", 'description' => "string[]"])]
-	public static function getFields(): array
-	{
-		return [
-			'code' => ['input', 'text', 'required', 'Code', 'Enter a code'],
-			'name' => ['input', 'text', 'required', 'Name', 'Enter the name'],
-			'description' => ['input', 'textarea', 'optional', 'Description', 'Enter the description'],
-		];
-	}
+    public static function getClassLead(): string
+    {
+        return trans('user-statuses.class-lead'). ' ' . 'User status is the status for orders or notifications which can be set/reset by user. It is same as system status. But in case of system status the system generate the status. User cannot do anything to stop or to change the system status';
+    }
 
-	public static function getClassLead(): string
-	{
-		return trans('user-statuses.class-lead'). ' ' . 'User status is the status for orders or notifications which can be set/reset by user. It is same as system status. But in case of system status the system generate the status. User cannot do anything to stop or to change the system status';
-	}
+    /**
+     * This static function is essential for the documentation service provider
+     * The namespace is saved into doc_models table
+     * @return string
+     */
+    public static function getNamespace(): string
+    {
+        return __NAMESPACE__;
+    }
 
-	/**
-	 * This static function is essential for the documentation service provider
-	 * The namespace is saved into doc_models table
-	 * @return string
-	 */
-	public static function getNamespace(): string
-	{
-		return __NAMESPACE__;
-	}
-
-	/**
-	 * @return HasMany
-	 *
-	 */
-	public function user(): HasMany
-	{
-		return $this->hasMany(User::class, 'user_id');
-	}
+    /**
+     * @return HasMany
+     *
+     */
+    public function user(): HasMany
+    {
+        return $this->hasMany(User::class, 'user_id');
+    }
 }

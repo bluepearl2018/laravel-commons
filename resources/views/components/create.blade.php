@@ -1,4 +1,4 @@
-<div class="sm:flex sm:items-center" xmlns:x-theme="http://www.w3.org/1999/html">
+<div class="sm:flex sm:items-center">
 	<div class="sm:flex-auto">
 		<h1 class="text-xl font-semibold text-gray-900">
 			{{ __('Create new ') . __(Str::title(Str::replace('_', ' ', $name))) }}

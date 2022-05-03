@@ -13,32 +13,33 @@ use Illuminate\Support\Facades\Request;
 
 abstract class ShowFacade extends Facade
 {
-	protected string $name;
+    protected string $name;
 
-	public function __construct($name)
-	{
-		$this->name = $name;
-	}
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
 
-	public static function display($packageName, $class, $id): View|Factory|Application
-	{
-		$namespace = 'Eutranet\\' . Str::Studly($packageName) . '\\Models';
-		$name = '\\' . $namespace . '\\' . Str::studly($class);
-		$entry = $name::find($id);
-		if ($name::getFields()) {
-			return view($packageName . '::components.show',
-				[
-					'name' => Str::snake(Str::Studly($class)),
-					'id' => $name . '-id',
-					'class' => $class,
-					'lead' => $name::getClassLead(),
-					'entry' => $entry,
-					'routePrefix' => Request::route()->getPrefix() !== NULL ? Request::route()->getPrefix() . '.' : '',
-					'fields' => $name::getFields()
-				]
-			);
-		} else {
-			return view($packageName . '::components.error', ['error' => __('Missing getFields()')]);
-		}
-	}
+    public static function display($packageName, $class, $id): View|Factory|Application
+    {
+        $namespace = 'Eutranet\\' . Str::Studly($packageName) . '\\Models';
+        $name = '\\' . $namespace . '\\' . Str::studly($class);
+        $entry = $name::find($id);
+        if ($name::getFields()) {
+            return view(
+                $packageName . '::components.show',
+                [
+                    'name' => Str::snake(Str::Studly($class)),
+                    'id' => $name . '-id',
+                    'class' => $class,
+                    'lead' => $name::getClassLead(),
+                    'entry' => $entry,
+                    'routePrefix' => Str::replace('/', '', Request::route()->getPrefix()) !== null ? Str::replace('/', '', Request::route()->getPrefix()) . '.' : '',
+                    'fields' => $name::getFields()
+                ]
+            );
+        } else {
+            return view($packageName . '::components.error', ['error' => __('Missing getFields()')]);
+        }
+    }
 }
