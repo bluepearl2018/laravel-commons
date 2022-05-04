@@ -1,5 +1,4 @@
 @extends('commons::layouts.master')
-@auth('admin')
 @section('content')
 	<x-theme-h1>About laravel commons</x-theme-h1>
 	<p class="mb-2 italic">Laravel commons est le module de référence pour toutes les fonctions, contenus, communs... réutilisables dans Eutranet.</p>
@@ -11,7 +10,6 @@
 			<li>composer require eutranet/laravel-theme</li>
 			<li>php artisan eutranet:intall-theme</li>
 			<li>php artisan optimize</li>
-			<li>visit http://127.0.0.1:8000/init</li>
 		</ul>
 		<x-theme-h2 class="mt-4">Models</x-theme-h2>
 		<p>Les modèles, comme les pays, langues, etc. sont disponibles en plusieurs langues. L'objectif est de
@@ -26,4 +24,3 @@
 		<p>Les traits du package sont essentiellement applicables à l'UI.</p>
 	</div>
 @endsection
-@endauth
