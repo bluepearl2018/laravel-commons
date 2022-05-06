@@ -39,7 +39,7 @@ abstract class TableFacade extends Facade
                     'model' => $name,
                     'entries' => $entries,
                     'readonly' => $readonly ?? null,
-                    'routePrefix' => Request::route()->getPrefix() !== null ? Request::route()->getPrefix() . '.' : ''
+	                'routePrefix' => Str::replace('/', '', Request::route()->getPrefix()) !== null ? Str::replace('/', '', Request::route()->getPrefix()) . '.' : '',
                 ]
             );
         } else {

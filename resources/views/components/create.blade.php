@@ -13,25 +13,18 @@
 	</div>
 </div>
 <div class="content-panel">
-	<div class="columns-2">
+	<div class="">
 		<form id="{{$class}}-create-frm" method="POST"
 			  action="{{ route($routePrefix . '.' .  Str::slug(Str::plural($name)) . '.store') }}">
 			@csrf
 			@foreach($fields as $columnName => $specs)
-				<x-dynamic-component :component="'theme::forms.'.$specs[0].'-'.$specs[1]"
-									 :name="$columnName"
-									 :id="Str::slug($columnName)"
-									 :placeholder=" $specs[3]"
-									 :required="$specs[2]"
-									 :label="trans(Str::title(Str::replace('_', ' ', $columnName)))"
-									 :tip="$specs[4]"
-									 :readonly="$specs[5] ?? NULL"
-									 :model="$specs[5] ?? NULL"
+				<x-dynamic-component :component="'theme-form-'.$specs[0].'-'.$specs[1]"
+									 :specs="$specs"
 									 :old="old($columnName)"
-									 :errors="$errors ?? NULL"
-									 :columnName="$columnName"></x-dynamic-component>
+									 :columnName="$columnName"
+									 model="{{ $specs[5] ?? '' }}"></x-dynamic-component>
 			@endforeach
-			<x-theme::forms.save-buttons form="{{$class}}-create-frm"></x-theme::forms.save-buttons>
+			<x-theme-form-save-buttons form="{{$class}}-create-frm"></x-theme-form-save-buttons>
 		</form>
 	</div>
 </div>

@@ -1,9 +1,7 @@
-<div">
+<div>
 	<div class="sm:flex sm:items-center">
 		<div class="sm:flex-auto">
-			<x-theme-h1
-					class="text-xl font-semibold text-gray-900">{{__('Listing of') }} {{ __(Str::title(Str::replace('-', ' ', Str::plural($class)))) }}
-			</x-theme-h1>
+			<x-theme-h1>{{__('Listing of') }} {{ __(Str::title(Str::replace('-', ' ', Str::plural($class)))) }}</x-theme-h1>
 			<p class="mt-2 text-md text-gray-700">{{ $lead  }}</p>
 		</div>
 		<div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
@@ -49,26 +47,28 @@
 						{{ $entry[array_keys($fields)[1]] }}
 					</td>
 					@if($routePrefix)
-						<td class="lg:flex lg:flex-row lg:space-x-4 py-4 pl-4 pr-3 text-sm font-medium text-gray-700 w-48 max-w-48 sm:pl-6">
-							@if(Route::has($routePrefix . Str::plural($class) . '.show'))
-								<a href="{{ route($routePrefix . Str::plural($class) . '.show', $entry) }}"
+						<td class="lg:flex lg:flex-row lg:space-x-2 py-4 pl-4 pr-3 text-sm font-medium text-gray-700 w-48 max-w-48 sm:pl-6 items-center">
+							@if(Route::has($routePrefix . Str::slug(Str::plural($class)) . '.show'))
+								<a href="{{ route($routePrefix . Str::slug(Str::plural($class)) . '.show', $entry) }}"
 								   class="items-center self-center mx-0.5" title="{{__('show')}}"><i
 											class="fa fa-eye"></i></a>
 							@endif
-							@if(Route::has($routePrefix . Str::plural($class) . '.edit'))
+							@if(Route::has($routePrefix . Str::slug(Str::plural($class)) . '.edit'))
 								<a href="{{ route($routePrefix . Str::slug(Str::plural($class)) . '.edit', $entry) }}"
 								   class="items-center self-center mx-0.5" title="{{__('edit')}}"><i
 											class="fa fa-edit"></i></a>
 							@endif
-							@if(Route::has($routePrefix . Str::plural($class) . '.destroy'))
-								<form class="items-center self-center mx-0.5"
-									  action="{{ route($routePrefix . Str::plural($class) . '.destroy', $entry) }}"
-									  method="post">
-									@csrf
-									@method('DELETE')
-									<button onclick="return confirm('{{__("Are you sure ?") }}')"
-											type="submit" title="{{__('delete')}}"><i class="fa fa-trash"></i></button>
-								</form>
+							@if(Route::has($routePrefix . Str::slug(Str::plural($class)) . '.destroy'))
+								@if(Auth::user()->hasRole('super-staff'))
+									<form class="items-center self-center mx-0.5"
+										  action="{{ route($routePrefix . Str::slug(Str::plural($class)) . '.destroy', $entry) }}"
+										  method="post">
+										@csrf
+										@method('DELETE')
+										<button onclick="return confirm('{{__("Are you sure ?") }}')"
+												type="submit" title="{{__('delete')}}"><i class="fa fa-trash"></i></button>
+									</form>
+								@endif
 							@endif
 						</td>
 					@endif
