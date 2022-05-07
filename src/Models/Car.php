@@ -24,7 +24,7 @@ class Car extends Model
     public static function getFields(): array
     {
         return [
-            'asset_category_id' => ['select', 'list', 'required', 'Asset Category', 'Pick asset category', 'App\Models\Commons\AssetCategory'],
+            'asset_category_id' => ['select', 'list', 'required', 'Asset Category', 'Pick asset category', 'Eutranet\Commons\Models\AssetCategory'],
             'car_brand_id' => ['select', 'list', 'required', 'Car brand', 'Pick a car brand', 'App\Models\Commons\CarBrand'],
             'name' => ['input', 'text', 'required', 'Name / Model', 'Enter the car model / car name']
         ];
