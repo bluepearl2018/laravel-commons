@@ -24,7 +24,7 @@
 					<div class="col-span-1 break-inside-avoid">
 						<x-dynamic-component :component="'theme-form-'.$specs[0].'-'.$specs[1]"
 											 :specs="$specs"
-											 :old="$entry->$columnName"
+											 :old="old($columnName, $entry->$columnName)"
 											 :columnName="$columnName"
 											 model="{{ $specs[5] ?? '' }}"></x-dynamic-component>
 					</div>
