@@ -26,7 +26,7 @@ class WorkStatus extends Model
     public static function getFields(): array
     {
         return [
-            'name' => ['input', 'text', 'required', 'Name', 'Enter the name'],
+	        'name' => ['input', 'text', 'required', trans('work-statuses.Name'), trans('work-statuses.Enter the name')],
         ];
     }
 

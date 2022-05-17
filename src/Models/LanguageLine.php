@@ -24,9 +24,9 @@ class LanguageLine extends Model
     public static function getFields(): array
     {
         return [
-            'group' => ['input', 'text', 'required', 'Group', 'Set the group (slugified plural class)'],
-            'key' => ['input', 'text', 'required', 'Key', 'Set the key or text.'],
-            'text' => ['input', 'textarea', 'required', 'Original text or translation', 'Use deepl.'],
+            'group' => ['input', 'text', 'required', trans('language-lines.Group'), trans('language-lines.Set the group (slugified plural class')],
+            'key' => ['input', 'text', 'required', trans('language-lines.Key'), trans('language-lines.Set the key or text.')],
+            'text' => ['input', 'textarea', 'required', trans('language-lines.Original text or translation'), trans('language-lines.Use deepl.')],
         ];
     }
 

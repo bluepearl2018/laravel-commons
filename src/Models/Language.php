@@ -1,6 +1,6 @@
 <?php
 
-namespace Eutranet\Init\Models;
+namespace Eutranet\Commons\Models;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;

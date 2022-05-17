@@ -40,16 +40,8 @@ class MaritalStatus extends Model
     {
         // field, type, required, placeholder, tip, model for select
         return [
-            'name' => ['input', 'text', 'required', 'Name', 'Enter the name'],
+            'name' => ['input', 'text', 'required', 'Name', trans('marital-statuses.Enter the name')],
         ];
-    }
-
-    /**
-     * Filter MaritalStatus for statitics
-     */
-    public function userLegals(): HasMany
-    {
-        return $this->hasMany(UserLegal::class);
     }
 
     /**

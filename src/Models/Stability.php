@@ -31,9 +31,9 @@ class Stability extends Model
     public static function getFields(): array
     {
         return [
-            'code' => ['input', 'text', 'required', 'Code', 'Enter a code'],
-            'name' => ['input', 'text', 'required', 'Name', 'Enter the name'],
-            'description' => ['input', 'textarea', 'optional', 'Description', 'Enter the description'],
+            'code' => ['input', 'text', 'required', trans('media-collectionsCode'), trans('media-collectionsEnter a code')],
+            'name' => ['input', 'text', 'required', trans('media-collectionsName'), trans('media-collectionsEnter the name')],
+            'description' => ['input', 'textarea', 'optional', trans('media-collectionsDescription'), trans('media-collectionsEnter the description')],
         ];
     }
 

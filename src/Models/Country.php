@@ -31,8 +31,8 @@ class Country extends Model
     {
         // field, type, required, placeholder, tip, model for select
         return [
-            'code' => ['input', 'text', 'required', trans('commons::countries.ISO 2 Code'), trans('commons::countries.Enter the code (ISO 2)'), __NAMESPACE__ . '\\Country'],
-            'name' => ['input', 'text', 'required', trans('commons::countries.Name'), trans('commons::countries.Enter the name')],
+            'code' => ['input', 'text', 'required', trans('countries.ISO 2 Code'), trans('countries.Enter the code (ISO 2)'), __NAMESPACE__ . '\\Country'],
+            'name' => ['input', 'text', 'required', trans('countries.Name'), trans('countries.Enter the name')],
         ];
     }
 

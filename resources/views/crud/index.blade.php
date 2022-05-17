@@ -3,7 +3,7 @@
     <x-theme-h1>
         <div class="flex flex-row justify-between items-center">
             <span>
-                {{ __($pluralTitle) }} {{ __('- List') }}
+                {{ __('cruds.'.$pluralTitle) }} {{ __(' - List') }}
             </span>
             <a class="btn-primary" href="{{route('setup.'.Str::slug($tableName).'.create')}}">
                 <i class="fa fa-plus"></i>

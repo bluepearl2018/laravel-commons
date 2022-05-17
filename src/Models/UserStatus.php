@@ -25,9 +25,9 @@ class UserStatus extends Model
     public static function getFields(): array
     {
         return [
-            'code' => ['input', 'text', 'required', 'Code', 'Enter a code'],
-            'name' => ['input', 'text', 'required', 'Name', 'Enter the name'],
-            'description' => ['input', 'textarea', 'optional', 'Description', 'Enter the description'],
+            'code' => ['input', 'text', 'required', trans('user-statuses.Code'), trans('user-statuses.Enter a code')],
+            'name' => ['input', 'text', 'required', trans('user-statuses.Name'), trans('user-statuses.Enter the name')],
+            'description' => ['input', 'textarea', 'optional', trans('user-statuses.Description'), trans('user-statuses.Enter the description')],
         ];
     }
 

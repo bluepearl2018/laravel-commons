@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Spatie\Translatable\HasTranslations;
 use Eutranet\FlorbelaBackend\Models\UserFamily;
+use JetBrains\PhpStorm\ArrayShape;
 
 /**
  * Kinship is to describe and save kinship degrees
@@ -28,6 +29,16 @@ class Kinship extends Model
         'name',
         'description'
     ];
+
+	#[ArrayShape(['name' => "array", 'description' => "array"])]
+	public static function getFields(): array
+	{
+		// field, type, required, placeholder, tip, model for select
+		return [
+			'name' => ['input', 'text', 'required', trans('kinships.Name'), trans('kinships.Enter the name')],
+			'description' => ['input', 'text', 'required', trans('kinships.Description'), trans('kinships.Enter the description')],
+		];
+	}
 
     public static function getClassLead(): string
     {

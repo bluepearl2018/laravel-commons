@@ -20,10 +20,10 @@ class MediaCollection extends Model
     public static function getFields()
     {
         return [
-            'code' => ['input', 'text', 'required', 'Code', 'Enter a code slug'],
-            'name' => ['input', 'text', 'required', 'Name', 'Enter a name'],
-            'description' => ['input', 'textarea', 'optional', 'Description', 'Enter a description'],
-            'class_route' => ['input', 'text', 'required', 'Class route', 'Enter a class route'],
+            'code' => ['input', 'text', 'required', trans('media-collections.Code'), trans('media-collections.Enter a code slug')],
+            'name' => ['input', 'text', 'required', trans('media-collections.Name'), trans('media-collections.Enter a name')],
+            'description' => ['input', 'textarea', 'optional', trans('media-collections.Description'), trans('media-collections.Enter a description')],
+            'class_route' => ['input', 'text', 'required', trans('media-collections.Class route'), trans('media-collectionsEnter a class route')],
         ];
     }
 

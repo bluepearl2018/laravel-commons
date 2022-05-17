@@ -32,9 +32,9 @@ class AssetCategory extends Model implements HasMedia
     {
         // field, type, required, placeholder, tip, model for select, readonly
         return [
-            'code' => ['input', 'text', 'required', 'Code', 'DO NOT MODIFY existing code, unless you know what you are doing, beacause Asset Category calls ad hoc forms blades...'],
-            'name' => ['input', 'text', 'required', 'Name', 'Enter the name'],
-            'description' => ['input', 'textarea', 'optional', 'Description', 'Enter the description'],
+            'code' => ['input', 'text', 'required', trans('asset-categories.Code'), trans('asset-categories.DO NOT MODIFY existing code, unless you know what you are doing, beacause Asset Category calls ad hoc forms blades...')],
+            'name' => ['input', 'text', 'required', trans('asset-categories.Name'), trans('asset-categories.Enter the name')],
+            'description' => ['input', 'textarea', 'optional', trans('asset-categories.Description'), trans('asset-categories.Enter the description')],
         ];
     }
 

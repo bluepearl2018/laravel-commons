@@ -27,7 +27,7 @@
 					{{ $specs[3]}}
 				</td>
 				<td>
-					{{ $entry[$key] }}
+					{!! $entry->$key  !!}
 				</td>
 			</tr>
 		@empty

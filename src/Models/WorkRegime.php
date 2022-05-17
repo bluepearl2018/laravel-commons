@@ -27,7 +27,7 @@ class WorkRegime extends Model
     public static function getFields(): array
     {
         return [
-            'name' => ['input', 'text', 'required', 'Name', 'Enter the name'],
+            'name' => ['input', 'text', 'required', trans('work-regimes.Name'), trans('work-regimes.Enter the name')],
         ];
     }
 

@@ -3,7 +3,7 @@
 	<x-theme-h1>
 		<div class="flex flex-row justify-between items-center">
             <span>
-                {{ __($singularTitle) }} {{ __('- Create') }}
+                {{ __('cruds.'.$singularTitle) }} {{ __('cruds.- Create') }}
             </span>
 			<a class="btn-primary" href="{{route('setup.'.Str::plural(Str::slug($tableName)).'.index')}}">
 				<i class="fa fa-list"></i>

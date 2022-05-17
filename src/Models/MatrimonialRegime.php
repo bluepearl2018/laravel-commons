@@ -40,25 +40,8 @@ class MatrimonialRegime extends Model
     {
         // field, type, required, placeholder, tip, model for select
         return [
-            'name' => ['input', 'text', 'required', 'Name', 'Enter the name'],
+            'name' => ['input', 'text', 'required', trans('matrimonial-regimes.Name'), trans('matrimonial-regimes.Enter the name')],
         ];
     }
 
-    /**
-     * A Matrimonial Regimes can be useful to describe families / households
-     * @return HasMany
-     */
-    public function userHousehold(): HasMany
-    {
-        return $this->hasMany(UserHousehold::class);
-    }
-
-    /**
-     * Retrieve users from the UserHousehodl through Matrimonial Regime-
-     * @return HasManyThrough
-     */
-    public function users(): HasManyThrough
-    {
-        return $this->hasManyThrough(User::class, UserHousehold::class);
-    }
 }
