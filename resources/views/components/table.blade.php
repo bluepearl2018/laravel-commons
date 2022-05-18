@@ -31,7 +31,7 @@
 				@endfor
 				<th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
 					<span class="sr-only">{{__('View')}}</span>
-					<span class="sr-only">{{__('Edit')}}</span>
+					<span class="sr-only">{{__('labels.Edit')}}</span>
 					<span class="sr-only">{{__('Trash')}}</span>
 				</th>
 			</tr>
@@ -77,7 +77,7 @@
 				<tr>
 					<td colspan="3">
 						<div class="bg-amber-200 p-4">
-							{{__('NOTHING TO SHOW')}}
+							{{__('warnings.NOTHING TO SHOW')}}
 						</div>
 					</td>
 				</tr>

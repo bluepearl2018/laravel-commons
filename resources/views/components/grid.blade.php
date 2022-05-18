@@ -22,7 +22,7 @@
 				@endfor
 				<th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
 					<span class="sr-only">{{__('View')}}</span>
-					<span class="sr-only">{{__('Edit')}}</span>
+					<span class="sr-only">{{__('labels.Edit')}}</span>
 					<span class="sr-only">{{__('Trash')}}</span>
 				</th>
 			</tr>
@@ -54,7 +54,7 @@
 			@empty
 				<tr>
 					<td colspan="3">
-						{{__('NOTHING TO SHOW')}}
+						{{__('warnings.NOTHING TO SHOW')}}
 					</td>
 				</tr>
 			@endforelse
